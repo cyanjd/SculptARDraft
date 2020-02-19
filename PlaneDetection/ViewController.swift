@@ -20,7 +20,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         sceneView.session = session
         sceneView.delegate = self
         configuration.planeDetection = .horizontal
@@ -37,45 +37,31 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @objc func tapResponse(sender: UITapGestureRecognizer){
         let scene = sender.view as! ARSCNView
         let location = scene.center
-        let tapLocation = sender.location(in: scene)
-        let hitTestRes = scene.hitTest(location, options: [:])
-        let hitTestCenter = scene.hitTest(location, types: .existingPlaneUsingExtent)
-        if hitTestCenter.isEmpty == false {
-            guard let hitTestCenter = hitTestCenter.first else { return }
-            for item in buildingBlockArray{
-                for hitResult in hitTestRes{
-                    if (item == hitResult.node){
-                        print ("hit object")
-                    }
-                }
-                
+        guard let hitTestNode = scene.hitTest(location,options: nil).first?.node else { return }
+        for item in buildingBlockArray{
+            if hitTestNode == item{
+                print("user tapped on object")
             }
-            addObject(hitResult: hitTestCenter)
         }
-//        let hitTest = scene.hitTest(tapLocation, types: .existingPlaneUsingExtent)
-//        if hitTest.isEmpty{
-//            print ("no plane detected")
-//        }
-//        else {
-//            print ("found a horizontal plane")
-//            guard let hitResult = hitTest.first else { return }
-//            addObject(hitResult: hitResult)
+        //let hitTestCenter = scene.hitTest(location, types: .existingPlaneUsingExtent)
+        guard let hitTestCenter = scene.hitTest(location, types: .existingPlaneUsingExtent).first else { return }
+        addObject(hitResult: hitTestCenter)
+//        let tapLocation = sender.location(in: scene)
+//        let hitTestRes = scene.hitTest(location, options: [:])
+//        let hitTestCenter = scene.hitTest(location, types: .existingPlaneUsingExtent)
+//        if hitTestCenter.isEmpty == false {
+//            guard let hitTestCenter = hitTestCenter.first else { return }
+//            for item in buildingBlockArray{
+//                for hitResult in hitTestRes{
+//                    if (item == hitResult.node){
+//                        print ("hit object")
+//                    }
+//                }
+//
+//            }
+//            addObject(hitResult: hitTestCenter)
 //        }
     }
-    
-//    @objc func handleTap(sender: UITapGestureRecognizer){
-//        let areaTapped = sender.view as! SCNView
-//        let tappedCoordinates = sender.location(in: areaTapped)
-//        let hitTest = areaTapped.hitTest(tappedCoordinates)
-//        if hitTest.isEmpty{
-//            print ("Nothing")
-//        }
-//        else{
-//            let results = hitTest.first!
-//            let name = results.node.name
-//            print(name ?? "background")
-//        }
-//    }
     
     func addObject(hitResult:ARHitTestResult){
         let objectNode = SCNNode()
@@ -88,6 +74,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         buildingBlockArray.append(objectNode)
     }
     
+  
     
     //runs each time ARKit identifies a horizontal plane and identifies it as a plane anchor called ARPlane anchor, which defines the position and orientation of the flat surface
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor){
@@ -121,6 +108,30 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         return planeNode
     }
 
-    
+    //OLD CODE
+    //        let hitTest = scene.hitTest(tapLocation, types: .existingPlaneUsingExtent)
+    //        if hitTest.isEmpty{
+    //            print ("no plane detected")
+    //        }
+    //        else {
+    //            print ("found a horizontal plane")
+    //            guard let hitResult = hitTest.first else { return }
+    //            addObject(hitResult: hitResult)
+    //        }
+
+        
+    //    @objc func handleTap(sender: UITapGestureRecognizer){
+    //        let areaTapped = sender.view as! SCNView
+    //        let tappedCoordinates = sender.location(in: areaTapped)
+    //        let hitTest = areaTapped.hitTest(tappedCoordinates)
+    //        if hitTest.isEmpty{
+    //            print ("Nothing")
+    //        }
+    //        else{
+    //            let results = hitTest.first!
+    //            let name = results.node.name
+    //            print(name ?? "background")
+    //        }
+    //    }
 }
 
