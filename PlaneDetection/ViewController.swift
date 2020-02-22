@@ -11,12 +11,15 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: UIViewController{
     @IBOutlet weak var sceneView: ARSCNView!
     let configuration = ARWorldTrackingConfiguration()
     let session = ARSession()
     var buildingBlockArray : [SCNNode] = []
-    
+    var focusSquare: FocusSquare?
+    var screenCenter: CGPoint!
+    var colorOfChoice
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,6 +30,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.run(configuration)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapResponse(sender:)))
         sceneView.addGestureRecognizer(tapGesture)
+        screenCenter = view.center
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,33 +38,47 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.run(configuration)
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        let viewCenter = CGPoint(x: size.width / 2, y: size.height / 2)
+        screenCenter = viewCenter
+    }
+    
+    
+    func updateFocusSquare() {
+        guard let focusSquareLocal = focusSquare else {return}
+        let hitTest = sceneView.hitTest(screenCenter, types: .existingPlaneUsingExtent)
+        if let hitTestResult = hitTest.first {
+            //print("Focus square hits a plane")
+        } else {
+            //print("Focus square does not hit a plane")
+        }
+        
+    }
+
+    
     @objc func tapResponse(sender: UITapGestureRecognizer){
+        print("Screen Center")
+        print(screenCenter)
         let scene = sender.view as! ARSCNView
         let location = scene.center
-        guard let hitTestNode = scene.hitTest(location,options: nil).first?.node else { return }
+        guard let hitTestNode = scene.hitTest(screenCenter,options: nil).first?.node else { return }
         for item in buildingBlockArray{
             if hitTestNode == item{
                 print("user tapped on object")
+                print(item.position)
+                let objectNode2 = SCNNode()
+                objectNode2.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
+                objectNode2.geometry?.firstMaterial?.diffuse.contents = UIColor.purple
+                objectNode2.position = SCNVector3(item.position.x, (item.position.y + 0.1),item.position.z)
+                objectNode2.physicsBody = SCNPhysicsBody(type: .static, shape: nil)
+                sceneView.scene.rootNode.addChildNode(objectNode2)
+                buildingBlockArray.append(objectNode2)
+                return
             }
         }
-        //let hitTestCenter = scene.hitTest(location, types: .existingPlaneUsingExtent)
-        guard let hitTestCenter = scene.hitTest(location, types: .existingPlaneUsingExtent).first else { return }
+         guard let hitTestCenter = scene.hitTest(location, types: .existingPlaneUsingExtent).first else { return }
         addObject(hitResult: hitTestCenter)
-//        let tapLocation = sender.location(in: scene)
-//        let hitTestRes = scene.hitTest(location, options: [:])
-//        let hitTestCenter = scene.hitTest(location, types: .existingPlaneUsingExtent)
-//        if hitTestCenter.isEmpty == false {
-//            guard let hitTestCenter = hitTestCenter.first else { return }
-//            for item in buildingBlockArray{
-//                for hitResult in hitTestRes{
-//                    if (item == hitResult.node){
-//                        print ("hit object")
-//                    }
-//                }
-//
-//            }
-//            addObject(hitResult: hitTestCenter)
-//        }
     }
     
     func addObject(hitResult:ARHitTestResult){
@@ -75,7 +93,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
   
-    
+    /*
     //runs each time ARKit identifies a horizontal plane and identifies it as a plane anchor called ARPlane anchor, which defines the position and orientation of the flat surface
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor){
         guard anchor is ARPlaneAnchor else { return }
@@ -106,7 +124,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         planeNode.physicsBody = SCNPhysicsBody(type: .static, shape: nil)
         planeNode.geometry?.firstMaterial?.isDoubleSided = true
         return planeNode
-    }
+    }*/
 
     //OLD CODE
     //        let hitTest = scene.hitTest(tapLocation, types: .existingPlaneUsingExtent)
@@ -133,5 +151,35 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     //            print(name ?? "background")
     //        }
     //    }
+    
+        /*@objc func tapResponse(sender: UITapGestureRecognizer){
+            let scene = sender.view as! ARSCNView
+            let location = scene.center
+            guard let hitTestNode = scene.hitTest(location,options: nil).first?.node else { return }
+            for item in buildingBlockArray{
+                if hitTestNode == item{
+                    print("user tapped on object")
+                }
+            }
+             guard let hitTestCenter = scene.hitTest(location, types: .existingPlaneUsingExtent).first else { return }
+            addObject(hitResult: hitTestCenter)
+            //let hitTestCenter = scene.hitTest(location, types: .existingPlaneUsingExtent)
+           
+    //        let tapLocation = sender.location(in: scene)
+    //        let hitTestRes = scene.hitTest(location, options: [:])
+    //        let hitTestCenter = scene.hitTest(location, types: .existingPlaneUsingExtent)
+    //        if hitTestCenter.isEmpty == false {
+    //            guard let hitTestCenter = hitTestCenter.first else { return }
+    //            for item in buildingBlockArray{
+    //                for hitResult in hitTestRes{
+    //                    if (item == hitResult.node){
+    //                        print ("hit object")
+    //                    }
+    //                }
+    //
+    //            }
+    //            addObject(hitResult: hitTestCenter)
+    //        }
+        } */
 }
 

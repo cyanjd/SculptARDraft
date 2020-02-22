@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E35EA5962401D2A5003D0AB9 /* ViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35EA5952401D2A5003D0AB9 /* ViewController+ARSCNViewDelegate.swift */; };
+		E35EA5982401D951003D0AB9 /* whitegrid.png in Resources */ = {isa = PBXBuildFile; fileRef = E35EA5972401D951003D0AB9 /* whitegrid.png */; };
+		E35EA59A2401DA4A003D0AB9 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35EA5992401DA4A003D0AB9 /* FocusSquare.swift */; };
 		E38AEB5C23E39CA9002C6B1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38AEB5B23E39CA9002C6B1D /* AppDelegate.swift */; };
 		E38AEB5E23E39CA9002C6B1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38AEB5D23E39CA9002C6B1D /* SceneDelegate.swift */; };
 		E38AEB6023E39CA9002C6B1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38AEB5F23E39CA9002C6B1D /* ViewController.swift */; };
 		E38AEB6323E39CA9002C6B1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E38AEB6123E39CA9002C6B1D /* Main.storyboard */; };
 		E38AEB6523E39CAA002C6B1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E38AEB6423E39CAA002C6B1D /* Assets.xcassets */; };
 		E38AEB6823E39CAA002C6B1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E38AEB6623E39CAA002C6B1D /* LaunchScreen.storyboard */; };
-		E38AEB9623E3AC1B002C6B1D /* Locator_Grid.png in Resources */ = {isa = PBXBuildFile; fileRef = E38AEB9523E3AC1B002C6B1D /* Locator_Grid.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E35EA5952401D2A5003D0AB9 /* ViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
+		E35EA5972401D951003D0AB9 /* whitegrid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whitegrid.png; path = "../../../../../../cjd57/Swift Projects/PlaneDetection/PlaneDetection/whitegrid.png"; sourceTree = "<group>"; };
+		E35EA5992401DA4A003D0AB9 /* FocusSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 		E38AEB5823E39CA9002C6B1D /* PlaneDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaneDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38AEB5B23E39CA9002C6B1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E38AEB5D23E39CA9002C6B1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,7 +30,6 @@
 		E38AEB6423E39CAA002C6B1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E38AEB6723E39CAA002C6B1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E38AEB6923E39CAA002C6B1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E38AEB9523E3AC1B002C6B1D /* Locator_Grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Locator_Grid.png; path = ../../../../../../../Users/cjd57/Downloads/Locator_Grid.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +65,10 @@
 				E38AEB5B23E39CA9002C6B1D /* AppDelegate.swift */,
 				E38AEB5D23E39CA9002C6B1D /* SceneDelegate.swift */,
 				E38AEB5F23E39CA9002C6B1D /* ViewController.swift */,
+				E35EA5952401D2A5003D0AB9 /* ViewController+ARSCNViewDelegate.swift */,
+				E35EA5992401DA4A003D0AB9 /* FocusSquare.swift */,
 				E38AEB6123E39CA9002C6B1D /* Main.storyboard */,
-				E38AEB9523E3AC1B002C6B1D /* Locator_Grid.png */,
+				E35EA5972401D951003D0AB9 /* whitegrid.png */,
 				E38AEB6423E39CAA002C6B1D /* Assets.xcassets */,
 				E38AEB6623E39CAA002C6B1D /* LaunchScreen.storyboard */,
 				E38AEB6923E39CAA002C6B1D /* Info.plist */,
@@ -128,10 +134,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E38AEB9623E3AC1B002C6B1D /* Locator_Grid.png in Resources */,
 				E38AEB6823E39CAA002C6B1D /* LaunchScreen.storyboard in Resources */,
 				E38AEB6523E39CAA002C6B1D /* Assets.xcassets in Resources */,
 				E38AEB6323E39CA9002C6B1D /* Main.storyboard in Resources */,
+				E35EA5982401D951003D0AB9 /* whitegrid.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,9 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E35EA5962401D2A5003D0AB9 /* ViewController+ARSCNViewDelegate.swift in Sources */,
 				E38AEB6023E39CA9002C6B1D /* ViewController.swift in Sources */,
 				E38AEB5C23E39CA9002C6B1D /* AppDelegate.swift in Sources */,
 				E38AEB5E23E39CA9002C6B1D /* SceneDelegate.swift in Sources */,
+				E35EA59A2401DA4A003D0AB9 /* FocusSquare.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
