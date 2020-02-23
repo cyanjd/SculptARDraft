@@ -24,19 +24,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRD-2u-Yg1">
+                                <rect key="frame" x="305" y="40" width="70" height="70"/>
+                                <state key="normal" image="createToolIcon"/>
+                                <connections>
+                                    <action selector="createTool:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hEr-mM-7iJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="APC-a8-IcW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1RC-4a-tJh"/>
-                            <constraint firstItem="APC-a8-IcW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Bki-YH-MEL"/>
-                            <constraint firstItem="hXX-zD-Yhk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C1D-df-5p6"/>
-                            <constraint firstItem="APC-a8-IcW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IDz-fc-lUt"/>
-                            <constraint firstItem="APC-a8-IcW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Ixp-9P-xec"/>
-                            <constraint firstItem="APC-a8-IcW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MFs-UK-onR"/>
-                            <constraint firstItem="hXX-zD-Yhk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MKj-yO-Dcm"/>
-                            <constraint firstItem="APC-a8-IcW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dxv-py-rjo"/>
-                            <constraint firstItem="APC-a8-IcW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="i3U-jR-35n"/>
-                            <constraint firstItem="APC-a8-IcW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="uLt-EK-SbL"/>
+                            <constraint firstItem="APC-a8-IcW" firstAttribute="trailing" secondItem="KRD-2u-Yg1" secondAttribute="trailing" id="4Vr-Tp-OjO"/>
+                            <constraint firstItem="APC-a8-IcW" firstAttribute="centerY" secondItem="hXX-zD-Yhk" secondAttribute="centerY" id="C26-Pa-HJR"/>
+                            <constraint firstItem="KRD-2u-Yg1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="G03-NE-c0d"/>
+                            <constraint firstItem="APC-a8-IcW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dSM-Yl-dEd"/>
+                            <constraint firstItem="APC-a8-IcW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fPs-25-Ekg"/>
+                            <constraint firstItem="KRD-2u-Yg1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="305" id="ft6-Ze-AjM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KRD-2u-Yg1" secondAttribute="bottom" constant="557" id="jJA-it-131"/>
+                            <constraint firstItem="APC-a8-IcW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="k82-Ye-FK4"/>
+                            <constraint firstItem="APC-a8-IcW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nAB-py-Jbk"/>
+                            <constraint firstItem="APC-a8-IcW" firstAttribute="centerX" secondItem="hXX-zD-Yhk" secondAttribute="centerX" id="zRm-jG-VZB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -49,4 +56,7 @@
             <point key="canvasLocation" x="132" y="137.18140929535232"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="createToolIcon" width="710" height="658"/>
+    </resources>
 </document>

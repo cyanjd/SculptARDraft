@@ -18,8 +18,11 @@ class ViewController: UIViewController{
     var buildingBlockArray : [SCNNode] = []
     var focusSquare: FocusSquare?
     var screenCenter: CGPoint!
-    var colorOfChoice
 
+    @IBAction func createTool(_ sender: UIButton) {
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -58,12 +61,37 @@ class ViewController: UIViewController{
 
     
     @objc func tapResponse(sender: UITapGestureRecognizer){
-        print("Screen Center")
-        print(screenCenter)
+        //print("Screen Center")
+        //print(screenCenter)
         let scene = sender.view as! ARSCNView
         let location = scene.center
         guard let hitTestNode = scene.hitTest(screenCenter,options: nil).first?.node else { return }
+//        let hitTest = sceneView.hitTest(screenCenter, types: .existingPlane)
+//        let hitTestResult = hitTest.first
+//        guard let worldTransform = hitTestResult?.worldTransform else {return}
+//        let worldTransformColumn3 = worldTransform.columns.3
+        
         for item in buildingBlockArray{
+            //create a range of acceptable touch points
+//            let upperBoundX = item.position.x + 0.05
+//            let lowerBoundX = item.position.x - 0.05
+//            let upperBoundY = item.position.y + 0.05
+//            let lowerBoundY = item.position.y - 0.05
+//            let upperBoundZ = item.position.z + 0.05
+//            let lowerBoundZ = item.position.z - 0.05
+//
+//            if ((lowerBoundX <= hitTestNode.position.x) && (hitTestNode.position.x <= upperBoundX)) && ((lowerBoundY <= hitTestNode.position.y) && (hitTestNode.position.y <= upperBoundY)) && ((lowerBoundZ <= hitTestNode.position.z) && (hitTestNode.position.z <= upperBoundZ)){
+//                print("user tapped on object")
+//                print(item.position)
+//                let objectNode2 = SCNNode()
+//                objectNode2.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
+//                objectNode2.geometry?.firstMaterial?.diffuse.contents = UIColor.purple
+//                objectNode2.position = SCNVector3(item.position.x, (item.position.y + 0.1),item.position.z)
+//                objectNode2.physicsBody = SCNPhysicsBody(type: .static, shape: nil)
+//                sceneView.scene.rootNode.addChildNode(objectNode2)
+//                buildingBlockArray.append(objectNode2)
+//                return
+//            }
             if hitTestNode == item{
                 print("user tapped on object")
                 print(item.position)

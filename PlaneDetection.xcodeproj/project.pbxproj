@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E34F44CE2402E76000A79076 /* whitegrid.png in Resources */ = {isa = PBXBuildFile; fileRef = E34F44CD2402E75D00A79076 /* whitegrid.png */; };
 		E35EA5962401D2A5003D0AB9 /* ViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35EA5952401D2A5003D0AB9 /* ViewController+ARSCNViewDelegate.swift */; };
-		E35EA5982401D951003D0AB9 /* whitegrid.png in Resources */ = {isa = PBXBuildFile; fileRef = E35EA5972401D951003D0AB9 /* whitegrid.png */; };
 		E35EA59A2401DA4A003D0AB9 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35EA5992401DA4A003D0AB9 /* FocusSquare.swift */; };
 		E38AEB5C23E39CA9002C6B1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38AEB5B23E39CA9002C6B1D /* AppDelegate.swift */; };
 		E38AEB5E23E39CA9002C6B1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38AEB5D23E39CA9002C6B1D /* SceneDelegate.swift */; };
@@ -19,8 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E34F44CD2402E75D00A79076 /* whitegrid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whitegrid.png; path = ../../../../../../../Users/cjd57/Desktop/whitegrid.png; sourceTree = "<group>"; };
 		E35EA5952401D2A5003D0AB9 /* ViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
-		E35EA5972401D951003D0AB9 /* whitegrid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whitegrid.png; path = "../../../../../../cjd57/Swift Projects/PlaneDetection/PlaneDetection/whitegrid.png"; sourceTree = "<group>"; };
 		E35EA5992401DA4A003D0AB9 /* FocusSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 		E38AEB5823E39CA9002C6B1D /* PlaneDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaneDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38AEB5B23E39CA9002C6B1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 				E35EA5952401D2A5003D0AB9 /* ViewController+ARSCNViewDelegate.swift */,
 				E35EA5992401DA4A003D0AB9 /* FocusSquare.swift */,
 				E38AEB6123E39CA9002C6B1D /* Main.storyboard */,
-				E35EA5972401D951003D0AB9 /* whitegrid.png */,
+				E34F44CD2402E75D00A79076 /* whitegrid.png */,
 				E38AEB6423E39CAA002C6B1D /* Assets.xcassets */,
 				E38AEB6623E39CAA002C6B1D /* LaunchScreen.storyboard */,
 				E38AEB6923E39CAA002C6B1D /* Info.plist */,
@@ -137,7 +137,7 @@
 				E38AEB6823E39CAA002C6B1D /* LaunchScreen.storyboard in Resources */,
 				E38AEB6523E39CAA002C6B1D /* Assets.xcassets in Resources */,
 				E38AEB6323E39CA9002C6B1D /* Main.storyboard in Resources */,
-				E35EA5982401D951003D0AB9 /* whitegrid.png in Resources */,
+				E34F44CE2402E76000A79076 /* whitegrid.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
