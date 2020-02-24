@@ -66,10 +66,37 @@ class ViewController: UIViewController{
         let scene = sender.view as! ARSCNView
         let location = scene.center
         guard let hitTestNode = scene.hitTest(screenCenter,options: nil).first?.node else { return }
-//        let hitTest = sceneView.hitTest(screenCenter, types: .existingPlane)
-//        let hitTestResult = hitTest.first
-//        guard let worldTransform = hitTestResult?.worldTransform else {return}
-//        let worldTransformColumn3 = worldTransform.columns.3
+        
+        let hitTest = sceneView.hitTest(screenCenter, types: .featurePoint)
+        let hitTestResult = hitTest.first
+        guard let worldTransform = hitTestResult?.worldTransform else {return}
+        let worldTransformColumn3 = worldTransform.columns.3
+        
+//        print("The X's")
+//        for item in buildingBlockArray{
+//            let upperBoundX = item.worldPosition.x + 0.5
+//            let lowerBoundX = item.worldPosition.x  - 0.05
+//            let upperBoundY = item.worldPosition.y  + 0.05
+//            print (upperBoundY)
+//            let lowerBoundY = item.worldPosition.y  - 0.05
+//            let upperBoundZ = item.worldPosition.z + 0.05
+//            let lowerBoundZ = item.worldPosition.z - 0.05
+//
+//            if ((lowerBoundX <= worldTransformColumn3.x) && (worldTransformColumn3.x <= upperBoundX)) && ((lowerBoundY <= worldTransformColumn3.y) && (worldTransformColumn3.y <= upperBoundY)) && ((lowerBoundZ <= worldTransformColumn3.z) && (worldTransformColumn3.z <= upperBoundZ)){
+//                print("user tapped on object")
+//                print(item.position)
+//                let objectNode2 = SCNNode()
+//                objectNode2.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
+//                objectNode2.geometry?.firstMaterial?.diffuse.contents = UIColor.purple
+//                objectNode2.position = SCNVector3(item.position.x, (item.position.y + 0.1),item.position.z)
+//                objectNode2.physicsBody = SCNPhysicsBody(type: .static, shape: nil)
+//                sceneView.scene.rootNode.addChildNode(objectNode2)
+//                buildingBlockArray.append(objectNode2)
+//                return
+////
+//            }
+//        }
+        
         
         for item in buildingBlockArray{
             //create a range of acceptable touch points
@@ -80,6 +107,7 @@ class ViewController: UIViewController{
 //            let upperBoundZ = item.position.z + 0.05
 //            let lowerBoundZ = item.position.z - 0.05
 //
+        //SEPARATE
 //            if ((lowerBoundX <= hitTestNode.position.x) && (hitTestNode.position.x <= upperBoundX)) && ((lowerBoundY <= hitTestNode.position.y) && (hitTestNode.position.y <= upperBoundY)) && ((lowerBoundZ <= hitTestNode.position.z) && (hitTestNode.position.z <= upperBoundZ)){
 //                print("user tapped on object")
 //                print(item.position)
@@ -92,6 +120,7 @@ class ViewController: UIViewController{
 //                buildingBlockArray.append(objectNode2)
 //                return
 //            }
+        //SEPARATE
             if hitTestNode == item{
                 print("user tapped on object")
                 print(item.position)
@@ -102,6 +131,7 @@ class ViewController: UIViewController{
                 objectNode2.physicsBody = SCNPhysicsBody(type: .static, shape: nil)
                 sceneView.scene.rootNode.addChildNode(objectNode2)
                 buildingBlockArray.append(objectNode2)
+                
                 return
             }
         }
